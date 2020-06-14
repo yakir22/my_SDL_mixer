@@ -1,0 +1,11 @@
+VisualC/.vs/
+VisualC/x64/Release/
+VisualC/x64/Debug/
+VisualC/Win32/
+VisualC/timidity/x64/
+VisualC/timidity/Win32/
+VisualC/playwave/x64/
+VisualC/playmus/x64/
+VisualC/native_midi/x64/
+VisualC/native_midi/Win32/
+freepats-master.zip

@@ -18,3 +18,4 @@ extern SDL_RWops *open_file(const char *name);
 extern void add_to_pathlist(const char *s);
 extern void *safe_malloc(size_t count);
 extern void free_pathlist(void);
+extern void setup_pathlist();

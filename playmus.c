@@ -123,7 +123,6 @@ int main(int argc, char *argv[])
     audio_format = AUDIO_S16;
     audio_channels = 2;
     audio_buffers = 4096;
-
     /* Check command line usage */
     for (i=1; argv[i] && (*argv[i] == '-'); ++i) {
         if ((strcmp(argv[i], "-r") == 0) && argv[i+1]) {
@@ -175,6 +174,11 @@ int main(int argc, char *argv[])
         return(255);
     }
 
+	// TODO :: this should be set to NativeAssets or the episode's pats dir (yakir)
+	SDL_setenv("TIMIDITY_CFG", "C:/1Dev/SlateScience/Playground/SDL_Source/my_SDL_mixer/freepats/freepats.cfg", 1);
+	SDL_setenv("TIMIDITY_PATH_LIST0", "C:/1Dev/SlateScience/Playground/SDL_Source/my_SDL_mixer/freepats/", 1);
+
+
 #ifdef HAVE_SIGNAL_H
     signal(SIGINT, IntHandler);
     signal(SIGTERM, CleanUp);
@@ -217,7 +221,8 @@ int main(int argc, char *argv[])
 
         /* Play and then exit */
         SDL_Log("Playing %s\n", argv[i]);
-        Mix_FadeInMusic(music,looping,2000);
+		looping = 1000000;
+        Mix_FadeInMusic(music,looping ,2000);
         while (!next_track && (Mix_PlayingMusic() || Mix_PausedMusic())) {
             if(interactive)
                 Menu();

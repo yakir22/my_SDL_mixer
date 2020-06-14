@@ -90,9 +90,6 @@
     <CustomBuild Include="external\lib\x64\LICENSE.modplug.txt">
       <Filter>x64</Filter>
     </CustomBuild>
-    <CustomBuild Include="external\lib\x64\LICENSE.mikmod.txt">
-      <Filter>x64</Filter>
-    </CustomBuild>
     <CustomBuild Include="external\lib\x64\LICENSE.FLAC.txt">
       <Filter>x64</Filter>
     </CustomBuild>

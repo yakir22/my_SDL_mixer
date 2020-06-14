@@ -28,6 +28,8 @@ static PathList *pathlist = NULL; /* This is a linked list */
 /* This is meant to find and open files for reading */
 SDL_RWops *open_file(const char *name)
 {
+// TODO :: add (yakir)
+	setup_pathlist();
   SDL_RWops *rw;
 
   if (!name || !(*name))
@@ -87,9 +89,36 @@ void *safe_malloc(size_t count)
   return p;
 }
 
+// TODO :: add (yakir)
+void setup_pathlist()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		char buf[256];
+		sprintf(buf,"TIMIDITY_PATH_LIST%d",i);
+		const char* path = SDL_getenv(buf);
+		if (path)
+		{
+			add_to_pathlist(path);
+		}
+	}
+}
+
 /* This adds a directory to the path list */
 void add_to_pathlist(const char *s)
 {
+	PathList *next = pathlist;
+
+	// TODO :: add (yakir)
+	// don't add paths more than once
+	while (next)
+	{
+		if ( strcmp(next->path,s) == 0)
+			return;
+		next = next->next;
+	}
+
+
   PathList *plp = safe_malloc(sizeof(PathList));
 
   if (plp == NULL)

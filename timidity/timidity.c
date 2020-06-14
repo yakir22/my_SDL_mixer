@@ -416,7 +416,15 @@ int Timidity_Init_NoConfig()
 
 int Timidity_Init()
 {
+	char env_buffer[1024];
   const char *env = SDL_getenv("TIMIDITY_CFG");
+  // TODO :: add (yakir)
+  if (env)
+  {
+		// env might get overrun by other call to SDL_getenv
+	  strcpy(env_buffer,env);
+  }
+
 
   /* !!! FIXME: This may be ugly, but slightly less so than requiring the
    *            default search path to have only one element. I think.
@@ -439,8 +447,8 @@ int Timidity_Init()
 #endif
 
   Timidity_Init_NoConfig();
-
-  if (!env || read_config_file(env)<0) {
+  // TODO :: add (yakir)
+  if (!env || read_config_file(env_buffer)<0) {
     if (read_config_file(CONFIG_FILE)<0) {
       if (read_config_file(CONFIG_FILE_ETC)<0) {
         if (read_config_file(CONFIG_FILE_ETC_TIMIDITY_FREEPATS)<0) {

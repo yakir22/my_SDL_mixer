@@ -658,6 +658,7 @@ Uint32 Timidity_GetSongLength(MidiSong *song)
 
 int Timidity_PlaySome(MidiSong *song, void *stream, Sint32 len)
 {
+	Uint32 sl =  Timidity_GetSongLength(song);
   Sint32 start_sample, end_sample, samples;
   int bytes_per_sample;
 
@@ -767,7 +768,7 @@ int Timidity_PlaySome(MidiSong *song, void *stream, Sint32 len)
 		  song->current_sample/song->rate+2));
           SNDDBG(("Notes cut: %d\n", song->cut_notes));
           SNDDBG(("Notes lost totally: %d\n", song->lost_notes));
-	  song->playing = 0;
+		song->playing = 0;
           return (song->current_sample - start_sample) * bytes_per_sample;
         }
       song->current_event++;
