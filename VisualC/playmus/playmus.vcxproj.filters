@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\playmus.c" />
+    <ClCompile Include="..\..\midifile\Binasc.cpp">
+      <Filter>midifile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\midifile\MidiEvent.cpp">
+      <Filter>midifile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\midifile\MidiEventList.cpp">
+      <Filter>midifile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\midifile\MidiFile.cpp">
+      <Filter>midifile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\midifile\MidiMessage.cpp">
+      <Filter>midifile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\midifile\Options.cpp">
+      <Filter>midifile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\CreateMidi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="midifile">
+      <UniqueIdentifier>{cdfd6404-3d59-4b99-adcc-97cdabbe3434}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\midifile\Binasc.h">
+      <Filter>midifile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\midifile\MidiEvent.h">
+      <Filter>midifile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\midifile\MidiEventList.h">
+      <Filter>midifile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\midifile\MidiFile.h">
+      <Filter>midifile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\midifile\MidiMessage.h">
+      <Filter>midifile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\midifile\Options.h">
+      <Filter>midifile</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

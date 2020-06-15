@@ -20,7 +20,7 @@
 */
 
 /* Quiet windows compiler warnings */
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 
 /* $Id$ */
 
@@ -105,7 +105,7 @@ void IntHandler(int sig)
 }
 
 #endif
-
+int CreateMidi(const char *filename);
 int main(int argc, char *argv[])
 {
     int audio_rate;
@@ -204,6 +204,8 @@ int main(int argc, char *argv[])
     /* Set the external music player, if any */
     Mix_SetMusicCMD(SDL_getenv("MUSIC_CMD"));
 
+
+
     while (argv[i]) {
         next_track = 0;
 
@@ -211,7 +213,12 @@ int main(int argc, char *argv[])
         if (rwops) {
             music = Mix_LoadMUS_RW(SDL_RWFromFile(argv[i], "rb"), SDL_TRUE);
         } else {
-            music = Mix_LoadMUS(argv[i]);
+
+			char fileToPlay[1024];
+			strcpy(fileToPlay,argv[i]);
+			strcat(fileToPlay,".mid");
+			CreateMidi(fileToPlay);
+            music = Mix_LoadMUS(fileToPlay);
         }
         if (music == NULL) {
             SDL_Log("Couldn't load %s: %s\n",
